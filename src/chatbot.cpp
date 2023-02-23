@@ -153,7 +153,7 @@ ChatBot::ChatBot(ChatBot & source) {
 
     _currentNode = source._currentNode;
     _rootNode = source._rootNode;
-    _chatLogic = source._chatLogic;
+    _chatLogic->SetChatbotHandle(this);
 }
 
 ChatBot &ChatBot::operator=(ChatBot & source) {
@@ -166,7 +166,7 @@ ChatBot &ChatBot::operator=(ChatBot & source) {
 
     _currentNode = source._currentNode;
     _rootNode = source._rootNode;
-    _chatLogic = source._chatLogic;
+    _chatLogic->SetChatbotHandle(this);
 
     return *this;
 }
@@ -181,8 +181,7 @@ ChatBot::ChatBot(ChatBot &&source) noexcept {
     _rootNode = source._rootNode;
     _rootNode = nullptr;
 
-    _chatLogic = source._chatLogic;
-    _chatLogic = nullptr;
+    _chatLogic->SetChatbotHandle(this);
 }
 
 ChatBot &ChatBot::operator=(ChatBot &&source) noexcept {
@@ -199,8 +198,7 @@ ChatBot &ChatBot::operator=(ChatBot &&source) noexcept {
     _rootNode = source._rootNode;
     _rootNode = nullptr;
 
-    _chatLogic = source._chatLogic;
-    _chatLogic = nullptr;
+    _chatLogic->SetChatbotHandle(this);
 
     return *this;
 }

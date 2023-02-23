@@ -37,10 +37,10 @@ public:
     ChatBot &operator=(ChatBot & source);
 
     // move constructor
-    ChatBot(ChatBot && source) noexcept ;
+    ChatBot(ChatBot && source) noexcept;
 
     // move assignment
-    inline ChatBot &operator=(ChatBot && source) noexcept ;
+    ChatBot &operator=(ChatBot && source) noexcept;
 
     ////
     //// EOF STUDENT CODE
