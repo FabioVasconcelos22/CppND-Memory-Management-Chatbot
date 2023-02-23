@@ -146,3 +146,61 @@ int ChatBot::ComputeLevenshteinDistance(std::string s1, std::string s2)
 
     return result;
 }
+
+ChatBot::ChatBot(ChatBot & source) {
+    _image = source._image;
+    source._image = NULL;
+
+    _currentNode = source._currentNode;
+    _rootNode = source._rootNode;
+    _chatLogic = source._chatLogic;
+}
+
+ChatBot &ChatBot::operator=(ChatBot & source) {
+    if (this == &source) {
+        return *this;
+    }
+
+    _image = source._image;
+    source._image = nullptr;
+
+    _currentNode = source._currentNode;
+    _rootNode = source._rootNode;
+    _chatLogic = source._chatLogic;
+
+    return *this;
+}
+
+ChatBot::ChatBot(ChatBot &&source) noexcept {
+    _image = source._image;
+    _image = nullptr;
+
+    _currentNode = source._currentNode;
+    _currentNode = nullptr;
+
+    _rootNode = source._rootNode;
+    _rootNode = nullptr;
+
+    _chatLogic = source._chatLogic;
+    _chatLogic = nullptr;
+}
+
+ChatBot &ChatBot::operator=(ChatBot &&source) noexcept {
+    if (this == &source) {
+        return *this;
+    }
+
+    _image = source._image;
+    _image = nullptr;
+
+    _currentNode = source._currentNode;
+    _currentNode = nullptr;
+
+    _rootNode = source._rootNode;
+    _rootNode = nullptr;
+
+    _chatLogic = source._chatLogic;
+    _chatLogic = nullptr;
+
+    return *this;
+}
